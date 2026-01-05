@@ -1,0 +1,82 @@
+# The URL the site will be built for
+base_url = "https://lislis.xyz"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+theme = "nightfall"
+
+enableEmoji = true
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+[extra]
+# Put all your custom variables here
+
+[params]
+user = "lis"
+hostname = "lislis.xyz"
+displayDateFormat = "2006-01-02"
+# Global metadata display settings
+showMetadata = true      # Master switch for all metadata display (default: true)
+showPublishedDate = true # Show published date on post page (default: true)
+showReadingTime = true   # Show reading time on post page (default: true)
+showTags = true          # Show tags on post page (default: true)
+showAuthors = true       # Show authors on post page (default: true)
+showCategories = true    # Show categories on post page (default: true)
+sitedescription = 'Your website description'
+footerHtml = 'Some kind of footer'
+
+
+[params.author]
+name = "lislis"
+avatar = "/Sun_small.jpg"
+avatarSize = "size-xl"
+email = "hugo@example.com"
+avatarFirst = false
+
+[params.styles]
+color = "orange"
+
+[menu]
+  [[menu.header]]
+    name = "posts"
+    weight = 1
+    url = "/posts"
+
+  [[menu.header]]
+    name = "about"
+    weight = 0
+    url = "/about"
+
+
+
+[pagination]
+pagerSize = 10
+
+[[params.social]]
+key = 3
+name = "//github.com/lislis"
+url = "https://github.com/lislis"
+target = "_blank" 
+aria = "GitHub Profile" # Define the aria label for accessibility like page reader - this is better for your SEO
+
+[[params.social]]
+key = 2
+name = "@lislis@toot.cat"
+url = "https://toot.cat/@lislis"
+target = "_blank" 
+rel = "me"  # You can also add rel to social link
+aria = ""
+
+[[params.social]]
+key = 1
+name = "mail@lislis.de"
+url = "mailto:email@example.com"
+target = "_blank" 
