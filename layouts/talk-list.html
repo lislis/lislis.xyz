@@ -1,0 +1,41 @@
+{{ define "title"}}
+{{ .Title }} | {{ .Site.Params.author.name }}
+{{ end }}
+
+
+{{ define "main" }}
+<div>
+<div class="listHeader">
+    <h1>{{ .Title }}</h1>
+</div>
+
+{{ with .Content }}
+<div class="listContent">
+    {{- . -}}
+</div>
+{{ end }}
+
+<div class="listContent">
+<ul>
+    {{ range sort .Site.Data.talks "year" "desc"}}
+    <li>
+        <h2>{{ .title }}</h2>
+        <p>{{ .year }} - {{.conference}} - {{.city}}</p>
+        <p>{{ .description }}</p>
+        <p>
+            {{ with .slides_link}}
+            <a href="{{.}}" target="_blank">View the slides</a> -
+            {{ end }}
+            {{ with .video_link}}
+            <a href="{{.}}" target="_blank">Watch the recording</a> -
+            {{ end }}
+            {{ with .repository_link}}
+            <a href="{{.}}" target="_blank">Check the repository</a>
+            {{ end }}
+        </p>
+    </li>
+    {{ end }}
+</ul>
+</div>
+</div>
+{{ end }}

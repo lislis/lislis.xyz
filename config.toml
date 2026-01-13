@@ -51,6 +51,11 @@ color = "orange"
     url = "/posts"
 
   [[menu.header]]
+    name = "talks"
+    weight = 1
+    url = "/talks"
+
+  [[menu.header]]
     name = "about"
     weight = 0
     url = "/about"
