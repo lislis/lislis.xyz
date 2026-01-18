@@ -5,37 +5,69 @@
 
 {{ define "main" }}
 <div>
-<div class="listHeader">
-    <h1>{{ .Title }}</h1>
-</div>
+    <div class="listHeader">
+        <h1>{{ .Title }}</h1>
+    </div>
 
-{{ with .Content }}
-<div class="listContent">
-    {{- . -}}
-</div>
-{{ end }}
-
-<div class="listContent">
-<ul>
-    {{ range sort .Site.Data.talks "year" "desc"}}
-    <li>
-        <h2>{{ .title }}</h2>
-        <p>{{ .year }} - {{.conference}} - {{.city}}</p>
-        <p>{{ .description }}</p>
-        <p>
-            {{ with .slides_link}}
-            <a href="{{.}}" target="_blank">View the slides</a> -
-            {{ end }}
-            {{ with .video_link}}
-            <a href="{{.}}" target="_blank">Watch the recording</a> -
-            {{ end }}
-            {{ with .repository_link}}
-            <a href="{{.}}" target="_blank">Check the repository</a>
-            {{ end }}
-        </p>
-    </li>
+    {{ with .Content }}
+    <div class="listContent">
+        {{- . -}}
+    </div>
     {{ end }}
-</ul>
-</div>
+
+    <div class="listContent">
+        {{ $years := slice }}
+
+        {{ range .Site.Data.talks}}
+        {{ $year := .year }}
+        {{ $years = $years | append $year }}
+        {{ end }}
+        {{ $years := $years | uniq | sort | collections.Reverse }}
+
+        <ul class="nolist">
+            {{ range $years }}
+            <li>
+                <h2 class="publist--title">{{.}}</h2>
+                <ul class="nolist">
+                    {{ range where $.Site.Data.talks "year" .}}
+                    <li class="publist--item">
+                        <article class="publist--article">
+                            <header>
+                                <p class="publist--item--meta">
+                                    {{ with .podcast }}{{ . }}{{ end }}
+                                    {{ with .conference}}{{ . }}{{ end }}
+                                    {{ with .city}}- {{ . }}{{ end }}
+                                    <span class="tag">{{ .category }}</span>
+                                </p>
+                                <h3 class="publist--item--title">{{ .title }}</h3>
+                            </header>
+                            <aside>
+                                {{ with .podcast_link}}
+                                <a href="{{.}}" target="_blank">Listen to episode</a>
+                                {{ end }}
+                                {{ with .slides_link}}
+                                <a href="{{.}}" target="_blank">View the slides</a>
+                                {{ end }}
+                                {{ with .video_link}}
+                                <a href="{{.}}" target="_blank">Watch the recording</a>
+                                {{ end }}
+                                {{ with .repository_link}}
+                                <a href="{{.}}" target="_blank">Check the repository</a>
+                                {{end}}
+                            </aside>
+                            {{ with .description}}
+                            <details>
+                                <summary>More info</summary>
+                                <p>{{ . }}</p>
+                            </details>
+                            {{ end }}
+                        </article>
+                    </li>
+                    {{ end }}
+                </ul>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
 </div>
 {{ end }}

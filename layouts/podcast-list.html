@@ -1,0 +1,35 @@
+{{ define "title"}}
+{{ .Title }} | {{ .Site.Params.author.name }}
+{{ end }}
+
+
+{{ define "main" }}
+<div>
+<div class="listHeader">
+    <h1>{{ .Title }}</h1>
+</div>
+
+{{ with .Content }}
+<div class="listContent">
+    {{- . -}}
+</div>
+{{ end }}
+
+<div class="listContent">
+<ul>
+    {{ range sort .Site.Data.podcasts "year" "desc"}}
+    <li>
+        <h2>{{ .title }}</h2>
+        <p>{{ .year }} - {{.podcast}}</p>
+        <p>{{ .description }}</p>
+        <p>
+            {{ with .podcast_link}}
+            <a href="{{.}}" target="_blank">Listen to the episode</a>
+            {{ end }}
+        </p>
+    </li>
+    {{ end }}
+</ul>
+</div>
+</div>
+{{ end }}

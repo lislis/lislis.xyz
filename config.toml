@@ -46,14 +46,14 @@ color = "orange"
 
 [menu]
   [[menu.header]]
-    name = "posts"
+    name = "projects"
     weight = 1
-    url = "/posts"
+    url = "/projects"
 
   [[menu.header]]
-    name = "talks"
+    name = "public"
     weight = 1
-    url = "/talks"
+    url = "/public"
 
   [[menu.header]]
     name = "about"
@@ -63,7 +63,7 @@ color = "orange"
 
 
 [pagination]
-pagerSize = 10
+#pagerSize = 20
 
 [[params.social]]
 key = 3
