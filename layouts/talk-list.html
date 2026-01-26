@@ -34,6 +34,7 @@
                         <article class="publist--article">
                             <header>
                                 <p class="publist--item--meta">
+                                    {{ with .article_host }}{{ . }}{{ end }}
                                     {{ with .podcast }}{{ . }}{{ end }}
                                     {{ with .conference}}{{ . }}{{ end }}
                                     {{ with .city}}- {{ . }}{{ end }}
@@ -53,6 +54,12 @@
                                 {{ end }}
                                 {{ with .repository_link}}
                                 <a href="{{.}}" target="_blank">Check the repository</a>
+                                {{end}}
+                                {{ with .article_link}}
+                                <a href="{{.}}" target="_blank">Read the article</a>
+                                {{end}}
+                                {{ with .link}}
+                                <a href="{{.}}" target="_blank">More here</a>
                                 {{end}}
                             </aside>
                             {{ with .description}}
