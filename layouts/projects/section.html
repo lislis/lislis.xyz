@@ -1,0 +1,55 @@
+{{ define "title"}}
+{{ .Title }} | {{ .Site.Params.author.name }}
+{{ end }}
+
+
+{{ define "main" }}
+<div>
+    <div class="listHeader">
+        <h1>{{ .Title }}</h1>
+    </div>
+
+
+    {{ with .Content }}
+    <div class="listContent">
+        {{- . -}}
+    </div>
+    {{ end }}
+
+    <div class="listContent">
+        {{ $years := slice }}
+
+        {{ range .Pages}}
+        {{ $year := .Date.Format "2006" }}
+        {{ $years = $years | append $year }}
+        {{ end }}
+        {{ $years := $years | uniq | sort | collections.Reverse }}
+        <ul class="nolist">
+            {{ range $years }}
+            <li>
+                <h2 class="publist--title">{{.}}</h2>
+                <ul class="grid nolist">
+                    {{$y := .}}
+                    {{ range where $.Site.RegularPages "Section" "projects" }}
+                    {{ if eq (.Date.Format "2006") $y }}
+                    <li>
+                        <a class="postListLink" href="{{ .Permalink }}">
+                            {{ $cover := "cover.jpg" }}
+                            {{ with .Resources.Get $cover }}
+                            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+                            {{ end}}
+
+                            <h3 class="tile__title">{{.Title}}</h3>
+                        </a>
+                    </li>
+                    {{end}}
+                    {{end}}
+                </ul>
+
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+
+</div>
+{{ end }}
