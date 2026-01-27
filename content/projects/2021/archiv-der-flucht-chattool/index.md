@@ -1,6 +1,6 @@
 +++
 title = "Chatsimulator [Archiv der Flucht - Bildung]"
-draft = false
+draft = true
 showMetadata =  false
 date = "2021-10-18"
 tags = ["software", "online"]

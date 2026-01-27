@@ -1,6 +1,6 @@
 +++
 title = "We have pupeteering at home"
-draft = false
+draft = true
 showMetadata =  false
 date = "2024-01-30"
 tags = ["game", "hardware", "global game jam"]
