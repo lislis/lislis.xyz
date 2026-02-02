@@ -1,0 +1,21 @@
+{{ define "title"}}
+{{ .Title }} | {{ .Site.Params.author.name }}
+{{ end }}
+
+{{ define "main" }}
+<div class="postWrapper">
+    <header class="post__header">
+        {{ $cover := "cover2.jpg" }}
+        {{ with .Resources.Get $cover }}
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+        {{ end }}
+        {{ with .Params.photocredit }}
+        <span class="photocredit">{{.}}</span>
+        {{ end }}
+        <h1>{{ .Title }} <small>(<time datetime="{{.}}">{{ .Date.Format "2006"}}</time>)</small></h1>
+    </header>
+    <div>
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}
