@@ -1,6 +1,6 @@
 +++
 title = "Frogubator"
-draft = false
+draft = true
 showMetadata =  false
 date = "2025-01-30"
 tags = ["game", "hardware", "global game jam"]

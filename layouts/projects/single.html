@@ -3,7 +3,7 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="postWrapper">
+<article class="postWrapper">
     <header class="post__header">
         {{ $cover := "cover2.jpg" }}
         {{ with .Resources.Get $cover }}
@@ -17,5 +17,9 @@
     <div>
         {{ .Content }}
     </div>
-</div>
+    <footer>
+        <p>Tagged as {{ delimit .Params.Tags ", " " and "}}</p>
+        <p>Status: {{ delimit .Params.Category " ," }}</p>
+    </footer>
+</article>
 {{ end }}
