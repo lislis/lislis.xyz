@@ -20,8 +20,9 @@ highlight_code = true
 # Put all your custom variables here
 
 [params]
-user = "lis"
-hostname = "lislis.xyz"
+logo = "(?:lis){1,2}"
+#user = "(?:lis){1,2}"
+#hostname = ""
 displayDateFormat = "2006-01-02"
 # Global metadata display settings
 showMetadata = true      # Master switch for all metadata display (default: true)
@@ -30,8 +31,8 @@ showReadingTime = true   # Show reading time on post page (default: true)
 showTags = true          # Show tags on post page (default: true)
 showAuthors = true       # Show authors on post page (default: true)
 showCategories = true    # Show categories on post page (default: true)
-sitedescription = 'Your website description'
-footerHtml = 'Some kind of footer'
+sitedescription = ''
+footerHtml = ''
 
 
 [params.author]
