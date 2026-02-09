@@ -91,14 +91,23 @@ summary {
 }
 
 .photocredit {
-position: absolute;
-top: 0.2em;
+  position: absolute;
+  top: 0.2em;
   font-size: 0.9em;
   opacity: 0.4;
   right: 0.5em;
   &:before {
-  content: "©";
-  margin-right: 0.2em;
-  
+    content: "©";
+    margin-right: 0.2em;
+
   }
+}
+
+
+.content {
+  text-align: left !important;
+}
+
+.postWrapper {
+  padding: 0 !important;
 }

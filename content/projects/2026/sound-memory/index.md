@@ -21,3 +21,5 @@ I originally wanted it all to be Rust and then hosted on a Raspberry Pi. But wit
 
 
 You can find the code here: https://github.com/lislis/sound-memory
+
+![first sketch](sound-memory-sketch.jpg)

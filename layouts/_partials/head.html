@@ -14,17 +14,7 @@
 <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" >
 {{- end -}}
 
-{{ $vars := dict
-"color" (or site.Params.styles.color "blue")
-}}
 
-{{ $options := dict
-"targetPath" "css/style.css"
-"transpiler" "dartsass"
-"vars" $vars
-}}
-
-{{ $style := resources.Get "sass/main.scss" | toCSS $options | minify | fingerprint }}
-<link href="{{ $style.RelPermalink }}" rel="stylesheet">
+<link href="/main.css" rel="stylesheet">
 
 {{ partial "custom-head.html" . }}
